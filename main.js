@@ -17,13 +17,13 @@ const startTimer = () => {
     }, 1000)
     startBtn.innerHTML = "Stop"
     startBtn.id = "stop"
+    clearBtn.style.display = "block"
   }
   else {
     clearInterval(timer)
     timer = null
     startBtn.innerHTML = "Start"
     startBtn.id = "start"
-    clearBtn.style.display = "block"
   }
 }
 
@@ -47,5 +47,7 @@ clearBtn.addEventListener("click", () => {
   resultMoney.innerHTML = "0.00€"
   resultTime.innerHTML = "00:00 Minutes"
 
-  clearBtn.style.display = "none"
+	if (!timer){
+    clearBtn.style.display = "none"
+  }
 })
